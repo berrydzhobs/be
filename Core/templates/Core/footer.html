@@ -1,0 +1,821 @@
+{% load static %}
+
+    <!-- Qt Footer -->
+    <footer class="M0B1L3-F0073R bg-white uk-hidden ">
+        <div class="i73M">
+            <a href="{% url 'feed' %}">
+            <p>
+                
+                <div class="">
+                    
+                    {% if request.resolver_match.url_name == 'feed' %}
+                    <i class="uil-home-alt text-black icon-web"></i>
+                    {% elif request.resolver_match.url_name == 'search' %}
+                    <i class="uil-home-alt text-black icon-web"></i>
+                    {% else %}
+                    <i class="uil-home-alt  icon-web"></i>
+                    {% endif %}
+                </div>
+                </p>
+            </a>
+        </div>
+
+
+                 <div class="i73M">
+            {% if request.user.is_authenticated %}
+            <a href="#QU1K1QS3RCHM0B1L3" uk-toggle>
+                <p>
+                <div class="">
+                    <i class="uil-search  icon-web"></i>
+                </div>
+                </p>
+            </a>
+           {% else %}
+           <a href="#QU1K1QS3RCHM0B1L3" uk-toggle>
+                <p>
+                <div class="">
+                    <i class="uil-search  icon-web"></i>
+                </div>
+                </p>
+            </a>
+           {% endif %}
+            
+        </div>
+
+
+
+        
+
+        
+
+       
+ {% comment %}      
+
+        <div class="i73M">
+            <a href="
+            {% if request.user.is_authenticated %}{% url 'profile' user.profile.id %}{% else %}#profile{% endif %}
+           {% if request.user.is_anonymous %} uk-toggle {% endif %} " >
+                <p>
+                    <div class="">
+                    {% if request.resolver_match.url_name == 'profile' %}
+                    <i class=" icon-feather-more-horizontal text-primary icon-webedium"></i>
+                    {% elif request.resolver_match.url_name == 'profile-videos' %}
+                    <i class=" icon-feather-more-horizontal text-primary icon-webedium"></i>
+                    {% elif request.resolver_match.url_name == 'profile-audios' %}
+                    <i class=" icon-feather-more-horizontal text-primary icon-webedium"></i>
+                    {% elif request.resolver_match.url_name == 'profile-notes' %}
+                    <i class=" icon-feather-more-horizontal text-primary icon-webedium"></i>
+                    {% elif request.resolver_match.url_name == 'profile-images' %}
+                    <i class=" icon-feather-more-horizontal text-primary icon-webedium"></i>
+                    {% elif request.resolver_match.url_name == 'profile-shorts' %}
+                    <i class=" icon-feather-more-horizontal text-primary icon-webedium"></i>
+                    {% elif request.resolver_match.url_name == 'profile-list' %}
+                    <i class=" icon-feather-more-horizontal text-primary icon-webedium"></i>
+                    {% else %}
+                    <i class=" icon-feather-more-horizontal icon-webedium"></i>
+                    {% endif %}
+                    </div>
+                </p>
+            </a>
+        </div>
+
+
+
+        
+
+    
+{% endcomment %}
+        <div class="i73M">
+           
+            {% if request.user.is_authenticated %}
+                     <a href=" {% url 'profile' user.username %} " class="" >
+
+                        <p>
+                    <div class="">
+                    {% if request.resolver_match.url_name == 'profile' %}
+                    <i class=" uil-user text-primary icon-web"></i>
+                    {% else %}
+                    <i class=" uil-user icon-web"></i>
+                    {% endif %}
+                    </div>
+                </p>
+
+                <!-- {% if request.resolver_match.url_name == 'profile' %}
+                   <img src="{{ user.profile.userimage.url }}" alt="" class=" iq-border-large _small ">
+                    {% elif request.resolver_match.url_name == 'profile-videos' %}
+                    <img src="{{ user.profile.userimage.url }}" alt="" class=" iq-border-large _small ">
+                    {% elif request.resolver_match.url_name == 'profile-audios' %}
+                    <img src="{{ user.profile.userimage.url }}" alt="" class=" iq-border-large _small ">
+                    {% elif request.resolver_match.url_name == 'profile-notes' %}
+                    <img src="{{ user.profile.userimage.url }}" alt="" class=" iq-border-large _small ">
+                    {% elif request.resolver_match.url_name == 'profile-images' %}
+                    <img src="{{ user.profile.userimage.url }}" alt="" class=" iq-border-large _small ">
+                    {% elif request.resolver_match.url_name == 'profile-shorts' %}
+                    <img src="{{ user.profile.userimage.url }}" alt="" class=" iq-border-large _small ">
+                    {% elif request.resolver_match.url_name == 'profile-list' %}
+                    <img src="{{ user.profile.userimage.url }}" alt="" class=" iq-border-large _small ">
+                    {% else %}
+                    <img src="{{ user.profile.userimage.url }}" alt="" class="_small">
+                    {% endif %} -->
+
+                    
+                </a>
+
+            {% else %}
+             <a href="{% url 'about' %}" uk-toggle >
+                <p>
+                    <div class="">
+                    {% if request.resolver_match.url_name == 'profile' %}
+                    <i class=" uil-user text-primary icon-web"></i>
+                    {% else %}
+                    <i class=" uil-user  icon-web"></i>
+                    {% endif %}
+                    </div>
+                </p>
+            </a>
+            {% endif %}
+        </div>
+
+   
+        
+    </footer>
+    <!-- * Qt Footer -->
+
+
+
+
+<div id="br" uk-offcanvas="flip: true;overlay: true;">
+    <div class="uk-offcanvas-bar">
+       
+<button class="uk-offcanvas-close uk-authentications-close uk-icon-button-lg bg-white button" type="button" ><i class="mdi mdi-chevron-left icon-web"></i></button>
+             
+<div class="uk-container-m m-auto  ">
+            
+            <div class="rounded-lg">
+
+             
+
+
+            
+
+            
+        
+
+                    <p class="text-black uk-text-bold mt-2">{{note.title |truncatechars:100 |escape}}</p>
+
+        <div class="section-header">
+          <div class="section-header-left m-auto">
+            <p class="text-black">{{note.user.username |truncatechars:60 |escape}}</p>
+          <span class="uk-text-meta">
+           {{note.date}}
+          </span>
+          </div>
+          <div class="section-header-right">
+            
+          
+            
+          
+          </div>
+          </div>
+
+
+                          <div class="mb-7 mt-7 pt-0 px-3">
+
+                    <div class=" uk-animation-scale-up uk-hidden">
+                    <form action="
+        {% if request.resolver_match.url_name == 'result_articles' %}
+        {% url 'result_articles' %}
+        {% else %}
+        {% url 'result' %}
+        {% endif %}" method="GET">
+                    <div class="uk-form-group ">
+                        <div class="uk-position-relative uk-text-meta">
+                            <span class="uk-form-icon"><i class="uil-search icon-small"></i></span>
+                             <span class="uk-form-icon-ll">
+                                <a href="#V01C3534RCH" uk-toggle="" class="mr-2">
+                                <i class="mdi mdi-chevron-right is_icon icon-medium "></i>
+                                </a>
+                            </span>
+
+                            <input class="uk-input  bg-white  uk-form-medium uk-text-medium  rounded-lg" type="text" name="qt" required="" autocomplete="" x-webkit-speech="">
+                        </div>
+                    </div>
+                    </form>
+            
+            </div>
+
+
+           <div class=" uk-width-1-1  ">
+                                            
+                                             <form action="
+        {% if request.resolver_match.url_name == 'result_articles' %}
+        {% url 'result_articles' %}
+        {% else %}
+        {% url 'result' %}
+        {% endif %}" method="GET">
+                    <div class="uk-form-group">
+                        <div class="uk-position-relative uk-text-meta">
+                             <span class="uk-form-icon" >
+                                <i class="uil-search text-black icon-web"></i>
+                            </span>
+                            <input class="uk-input uk-width-1-1  text-black bg-pod uk-form-medium uk-text-meta  " type="text" name="qt" name="username"  required="" autosave="" autocomplete="" x-webkit-speech placeholder="Search or type anything" >
+
+                            <span class="uk-form-icon-ll" >
+                                <a href="{% url 'sitemap' %}" >
+                                    <i class="mdi mdi-file-tree text-black icon-web"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+
+
+          <div class="sidebar  bg-secondary mt-4  mb-4 rounded-sm  ">
+             <!-- sidebar Menu -->
+            
+                
+                <div class="sidebar_innr">
+          <div class="sections mt-4 mb-4">
+                        <ul>
+                            <li class="{% if request.resolver_match.url_name == 'feed' %} active {% endif %}">
+                                <a href="{% url 'feed' %}" > <i class=" mdi mdi-border-none-variant {% if request.resolver_match.url_name != 'feed' %}text-black {% endif %} "></i>
+                                    <span> Home </span> <span class="dot-notiv bg-dark"></span> </a>
+                            </li>
+
+                           
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_project' %} active {% endif %}">
+                                <a href="{% url 'feed_project' %}" > <i class=" mdi mdi-border-none-variant {% if request.resolver_match.url_name != 'feed_project' %} text-grey {% endif %} "></i>
+                                    <span> Works </span> <span class="dot-notiv bg-dark"></span> </a>
+                            </li>
+
+                             <li class="
+                            {% if request.resolver_match.url_name == 'about' %} active {% endif %}
+                            "> <a href="{% url 'about' %}">
+                                    <i class=" mdi mdi-border-none-variant {% if request.resolver_match.url_name != 'about' %} text-black {% endif %}"></i>
+                            <span> About </span> <span class="dot-notiv bg-dark"></span></a>
+                            </li>
+
+                            
+                            
+                            
+
+                        </ul>
+                    </div></div></div>
+
+
+
+
+                    <div class="sidebar  bg-secondary mt-4  mb-4 rounded-sm  ">
+             <!-- sidebar Menu -->
+            
+                
+                <div class="sidebar_innr">
+          <div class="sections mt-4 mb-4">
+                        <ul>
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_article' %} active {% endif %}">
+                                <a href="{% url 'feed_article' %}" > <i class=" mdi mdi-border-none-variant {% if request.resolver_match.url_name != 'feed_article' %} text-grey {% endif %}"></i>
+                                    <span> Press </span> <span class="dot-notiv bg-dark"></span> </a>
+                            </li>
+
+
+                            <li class="
+                            {% if request.resolver_match.url_name == 'feed_item' %} active {% endif %}
+                            "> <a href="{% url 'feed_item' %}">
+                                    <i class=" mdi mdi-border-none-variant {% if request.resolver_match.url_name != 'feed_item' %} text-black {% endif %}  "></i>
+                            <span> Market </span> <span class="dot-notiv bg-dark"></span></a>
+                            </li>
+
+                            
+
+
+                        </ul>
+                    </div></div></div>
+
+
+                    <div class="sidebar  bg-secondary mt-4  mb-4 rounded-sm  ">
+             <!-- sidebar Menu -->
+            
+                
+                <div class="sidebar_innr">
+          <div class="sections mt-4 mb-4">
+                        <ul>
+                            <li class="{% if request.resolver_match.url_name == 'feed_tool' %} active {% endif %}">
+                                <a href="{% url 'feed_tool' %}" > <i class=" mdi mdi-border-none-variant {% if request.resolver_match.url_name != 'feed_tool' %} text-black {% endif %} "></i>
+                                    <span> Tools </span> <span class="dot-notiv bg-dark"></span> </a>
+                            </li>
+
+                            
+
+                             <li class="{% if request.resolver_match.url_name == 'feed_client' %} active {% endif %}">
+                                <a href="{% url 'feed_client' %}" > <i class=" mdi mdi-border-none-variant{% if request.resolver_match.url_name != 'feed_client' %} text-grey {% endif %} "></i>
+                                    <span> Clients </span> <span class="dot-notiv bg-dark"></span> </a>
+                            </li>
+
+                           
+
+                        </ul>
+                    </div></div></div>
+
+
+                    <div class="sidebar  bg-secondary mt-4  mb-4 rounded-sm  ">
+             <!-- sidebar Menu -->
+            
+                
+                <div class="sidebar_innr">
+          <div class="sections mt-4 mb-4">
+                        <ul>
+                           <li class="
+                            {% if request.resolver_match.url_name == 'feed_service' %} active {% endif %}
+                            "> <a href="{% url 'feed_service' %}">
+                                    <i class=" mdi mdi-border-none-variant {% if request.resolver_match.url_name != 'feed_service' %} text-black {% endif %}"></i>
+                            <span> Services </span> <span class="dot-notiv bg-dark"></span></a>
+                            </li>
+                            
+
+
+                            <li class="
+                            {% if request.resolver_match.url_name == 'contact' %} active {% endif %}
+                            "> <a href="{% url 'contact' %}">
+                                    <i class=" mdi mdi-border-none-variant {% if request.resolver_match.url_name != 'contact' %} text-grey {% endif %}"></i>
+                            <span> Contacts </span> <span class="dot-notiv bg-dark"></span></a>
+                            </li>
+
+
+
+                        </ul>
+                    </div></div></div>
+
+                     
+
+                  <div class="sidebar  bg-white mt-4  mb-4 rounded-sm  ">
+             <!-- sidebar Menu -->
+
+
+                    <div class="sidebar_innr">
+          <div class="sections mt-4 mb-4">
+                        <ul>
+                            <li class="{% if request.resolver_match.url_name == 'tp' %} active {% endif %}">
+                                <a href="{% url 'tp' %}" > <i class=" mdi mdi-resize-bottom-right {% if request.resolver_match.url_name != 'tp' %} text-grey {% endif %}"></i>
+                                    <span> Terms & Policies </span> <span class="dot-notiv bg-dark"></span> </a>
+                            </li>
+
+                            <li class="
+                            {% if request.resolver_match.url_name == 'disclaimer' %} active {% endif %}
+                            "> <a href="{% url 'disclaimer' %}">
+                                    <i class=" mdi mdi-resize-bottom-right {% if request.resolver_match.url_name != 'disclaimer' %}text-black {% endif %}"></i>
+                            <span> Disclaimer </span> <span class="dot-notiv bg-dark"></span></a>
+                            </li>
+
+                            
+
+                        </ul>
+                    </div></div>
+
+
+                  </div>
+          
+
+
+          
+
+
+
+            <div  class="uk-child-width-1-1@m uk-child-width-1-1@s  uk-child-width-1-1 uk-grid uk-grid-small uk-hidden  " uk-grid >
+<div>
+<a href="/">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web ">
+      <i class="mdi mdi-cards text-red icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>Home</h5>
+
+
+
+<p class="uk-text-meta">
+   The startpage
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+<div>
+<a href="{% url 'about' %}">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web">
+      <i class="mdi mdi-propane-tank text-orange icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>About.</h5>
+
+
+
+<p class="uk-text-meta">
+
+    Get to know who we are.
+
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+
+<div>
+<a href="{% url  'feed_article' %}">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web text-teal ">
+      <i class="mdi  mdi-book-open-blank-variant  icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>Blog</h5>
+
+
+
+<p class="uk-text-meta">
+
+Stories and articles
+
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+<a href="{% url  'feed_item' %}">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web text-pink ">
+      <i class="mdi  mdi-basket  icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>Market</h5>
+
+
+
+<p class="uk-text-meta">
+
+ Shopable items from BE.
+
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+<div>
+<a href="{% url  'feed_tool' %}">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web text-green ">
+      <i class="mdi  mdi-hammer-screwdriver  icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>Tools</h5>
+
+
+
+<p class="uk-text-meta">
+
+Tools for your business
+
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+
+<div>
+<a href="{% url  'community' %}">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web text-black ">
+      <i class="mdi  mdi-account-group  icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>Community</h5>
+
+
+
+<p class="uk-text-meta">
+
+ Connect w/ like minded individuals
+
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+<div>
+<a href="{% url  'feed_client' %}">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web text-yellow ">
+      <i class="mdi  mdi-creation  icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>Clients</h5>
+
+
+
+<p class="uk-text-meta">
+
+ Find out what people say about BE.
+
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+
+
+<div>
+<a href="{% url  'feed_service' %}">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web text-blue ">
+      <i class="mdi mdi-distribute-horizontal-center icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>Services</h5>
+
+
+
+<p class="uk-text-meta">
+
+    Find services for your business
+
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+
+
+
+
+
+
+
+<div>
+<a href="{% url  'feed_project' %}">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web">
+      <i class="mdi mdi-folder text-gray icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>Projects</h5>
+
+
+
+<p class="uk-text-meta">
+
+    Our finished & ongoing Project portfolio
+
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+
+<div>
+<a href="{% url 'contact' %}">
+<div class="uk-grid-margin uk-first-column">
+<div class="list-items">
+<div class="list-item-media bg-pH rounded-circle">
+    <div class="is_web text-black ">
+      <i class="mdi  mdi-phone-in-talk  icon-web"></i>  
+    </div>
+
+</div>
+<div class="list-item-content">
+
+<h5>Contacts</h5>
+
+
+
+<p class="uk-text-meta">
+
+    Reach out and send a brief
+
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<div class="section-header pt-4">
+          <div class="section-header-left m-auto">
+          <h3 class="text-black">Берри Джобс</h3>
+          <small class="text-black">&copy; <script>document.write(new Date().getFullYear());</script> <span >Building For Entrepreneurs pvte</span> </small>
+          
+
+          </div>
+          <div class="section-header-right">
+               <a href="https://entrepreneur.berrydzhobs.com/" class="button dark circle "> <i class="mdi mdi-open-in-new icon-small"></i> </a>
+
+          </div>
+          </div>
+
+
+
+
+
+
+</div>
+</div>
+         
+
+</div>
+
+
+        
+
+
+    </div>
+</div>
+
+
+
+ <div id="i574R7" class="uk-modal-full uk-modal" uk-modal>
+    <div class="uk-modal-dialog  bg-secondary" style="border-radius: 0px;">
+        <button class="uk-modal-close-full uk-authentications-close uk-icon-button" type="button" uk-close></button>
+
+         <!-- Content
+    ================================================== -->
+   <div class=" uk-grid-collapse uk-grid-match uk-grid " uk-grid="">
+
+    <!-- Content
+    ================================================== -->
+
+      
+        <div uk-height-viewport="" class="uk-width-expand bg-dark  uk-height-viewport uk-flex uk-flex-middle ">
+            <div class="uk-width-1-1@m m-auto uk-width-1-2@s uk-container">
+
+                <div class="my-4 uk-text-center ">
+
+
+
+
+            <div class="text-white uk-text-medium mt-5">
+                   <a href="#br" uk-toggle class="text-white uk-text-bold" > MENU <i class="mdi mdi-menu "></i> </a>
+                    </div>
+
+            </div>  
+
+            </div>       
+        </div>
+
+
+<div  uk-height-viewport="" class="uk-width-1-2@m   uk-height-viewport bg-secondary  uk-width-1-2@s uk-flex-first@m uk-first-column uk-flex uk-flex-middle">
+ <div class="uk-width-1-1 rounded-xxlg uk-height-large uk-flex uk-flex-middle" >
+
+
+                <div class="uk-first-column uk-width-1-1">
+                            <div class="uk-card uk-width-2-3@m m-auto uk-scrollspy-inview uk-animation-fade" style="">
+                                <div class="uk-text-center mb-7">
+                        <p class="uk-text-xlarge text-black qt-font-p">Search everything:</p>
+                        <p class="uk-text-medium text-black">
+                            Find advice, insights and evergreen strategies to build a borderless digital economy
+                        </p>
+                    </div>
+                                <div class="uk-grid uk-grid-match" grid="">
+                                   
+
+                                    <div class="uk-width-expand@m uk-flex uk-flex-middle">
+                                            
+                                             <form action="
+        {% if request.resolver_match.url_name == 'result_articles' %}
+        {% url 'result_articles' %}
+        {% else %}
+        {% url 'result' %}
+        {% endif %}" method="GET">
+                    <div class="uk-form-group">
+                        <div class="uk-position-relative uk-text-meta">
+                            <span class="uk-form-icon" ><i class="uil-search icon-small"></i></span>
+                             
+
+                            <input class="uk-input text-black bg-pH    uk-form-medium uk-text-meta  rounded-lg" type="text" name="qt" name="username"  required="" autosave="" autocomplete="" x-webkit-speech placeholder="Search Берри..." >
+                        </div>
+                    </div>
+                    </form>
+                </div>
+
+                 <div class="uk-width-auto@m uk-visible@m  uk-hidden  uk-flex uk-flex-middle">
+
+                                        <div class="uk-text-xxlarge uk-text-bold  text-black uk-scrollspy-inview uk-animation-slide-top" uk-scrollspy="cls: uk-animation-slide-top;  delay: 500; repeat: true" style="">Be.</div>
+                                    </div>
+                                    </div>
+                                </div>
+                          
+
+
+
+
+
+
+
+              
+                
+            </div>
+            
+        </div>
+</div>
+
+
+</div>
+
+    </div>
+
+                       
+    </div>     

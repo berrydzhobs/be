@@ -1,0 +1,12 @@
+{% extends 'Core/core-page.html' %}
+
+{% block title %}{{ funnel.title }}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+{{ funnel.body |safe }}
+
+
+
+{% endblock %}

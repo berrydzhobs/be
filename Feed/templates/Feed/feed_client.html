@@ -1,0 +1,125 @@
+{% extends 'Core/base.html' %}
+
+{% block title %}Clients {% endblock %}
+
+{% block content %}
+{% load static %}
+
+{% include 'Core/toolbox.html' %}
+<div class="uk-height-viewport uk-flex uk-flex-middle main_content_logout" uk-height-viewport="" style="min-height: calc(100vh);">
+       
+
+
+                        <div class="uk-container">
+                        
+                        <div class="mb-4">
+        <p class="text-black uk-text-xlarge uk-text-bold">Clients</p>
+<ul class="uk-breadcrumb">
+    <li><a href="{% url 'feed' %}">Home</a></li>
+    <li class="uk-active"><a>Clients</a>
+</ul>
+      </div>
+
+
+                        <div class="uk-child-width-1-2@s uk-child-width-1-1 uk-grid mb-4" uk-grid="" uk-height-match="target: > div > .uk-card; row: false">
+                        
+                                                 {% for client in clients %}
+                        <div class="uk-first-column uk-active" tabindex="-1">
+                        <div class="p-4 uk-box-shadow-medium bg-white uk-card rounded-lg uk-scrollspy-inview uk-animation-scale-up" style="">
+                           <div class="uk-panel uk-card-small uk-card-medium@m">
+                                    <div class="uk-panel">
+                                        <div>
+                                            <i class="mdi mdi-star icon-medium text-black"></i>
+                                            <i class="mdi mdi-star icon-medium text-black"></i>
+                                            <i class="mdi mdi-star icon-medium text-black"></i>
+                                            <i class="mdi mdi-star icon-medium text-black"></i>
+                                            <i class="mdi mdi-star icon-medium"></i>
+                                        </div>
+                                        <p class="uk-margin-2xsmall-bottom uk-text-meta  uk-text-bold">{{ client.about }}</p>
+
+                                    </div>
+                                    <p class="text-black uk-height-small  uk-flex uk-flex-middle">
+
+                                    {{ client.description }}
+
+                                    </p>
+                                    
+
+                                    <div class="uk-grid" uk-grid="">
+                        <div class="uk-width-expand uk-first-column">
+                            <div class="uk-grid uk-grid-small" uk-grid="">
+                                <div class="uk-width-auto uk-flex uk-flex-middle uk-first-column">
+                                    <img src="{{ client.brand_logo }}" class="rounded-circle bg-white is_web " width="80">
+                                </div>
+                                <div class="uk-width-expand uk-flex uk-flex-middle">
+                                    <div>
+                                    <p class="uk-h5 mt-0 mb-0 text-black uk-text-bold"> {{ client.name }} <i class="mdi mdi-check-decagram text-blue"></i></p>
+                                    <p class="mt-0 uk-text-meta mb-0">A Client since {{ client.date }} </p>
+                                    </div>
+                                </div>
+                            </div>
+                             
+                        </div>
+                        <div class="uk-width-auto uk-flex uk-flex-middle uk-text-right">
+
+                            
+                        </div>
+                    </div>
+                                </div>
+                        </div>
+                    </div>
+                        {% endfor %}
+
+                </div>
+
+
+        <div>
+       
+
+            </div>
+
+            <div>
+
+
+
+
+
+    </div>
+</div>
+
+
+                            {% if is_paginated %}
+                             <div class="uk-flex uk-flex-center">
+                                <ul class="uk-pagination my-5" uk-margin>
+                             {% if is_paginated %}
+
+                             {% if page_obj.has_previous %}
+                             <li><a href="?page=1">First</a></li>
+                             <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+
+                             {% endif %}
+
+                             {% for num in page_obj.paginator.page_range %}
+                             
+                             {% if page_obj.number == num %}
+                              <li class="uk-active"><a href="?page={{ num }}">{{ num }}</a></li>
+                              {% elif num > page_obj.number|add:'-2' and page_obj.number|add:'2' %}
+                              <li ><a href="?page={{ num }}">{{ num }}</a></li>
+
+                             {% endif %}
+                             {% endfor %}
+
+                             {% if page_obj.has_next %}
+                             <li><a href="?page={{page_obj.next_page_number}}">Next</a></li>
+                             <li><a href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+
+                             {% endif %}
+
+                             {% endif %}
+                               </ul>
+                             </div>
+                            {% endif %}
+
+                                </div>
+
+{% endblock %}

@@ -1,0 +1,308 @@
+{% extends 'Core/base.html' %}
+
+{% block title %}{{ object.user.first_name }}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Content
+    ================================================== -->
+
+<!-- style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #212529 60%);" -->
+
+<div uk-height-viewport="" class="uk-height-viewport main_content_logout " >
+
+    <div class="uk-container">
+        <p class="text-black uk-text-xlarge uk-text-bold">Author</p>
+<ul class="uk-breadcrumb">
+    <li><a href="{% url 'feed' %}">Home</a></li>
+    <li class=""><a href="{% url 'profile' object.user.username %}">{{ object.user.first_name |truncatechars:30 }}</a></li>
+    <li class="uk-active"><a>Projects</a></li>
+</ul>
+    </div>
+<div class="main_content_inner  pb-0 mb-0 ">
+
+
+                            <div class="uk-scrollspy-inview uk-animation-fade" style="">
+                                <div class="uk-grid-collapse rounded-xxlg uk-grid-match uk-grid" data-uk-grid="">
+                                    <div class="uk-width-auto@m bg-mbl rounded-xxlg uk-flex uk-flex-middle ">
+                                        <div class="uk-panel  uk-card-small uk-card-xlarge@m uk-padding-remove-right@m uk-flex-column uk-flex-between">
+                                            <div class="uk-card-body">
+                                            <div class="uk-panel">
+
+
+                                                                        <div class="profile mt-lg
+                        ">
+                            
+
+                            <div class="
+                            profile-details
+                            {% if object.user.profilepreference.enable_userimage == True %}
+                            profile-details-false
+                            {% else %}
+                            profile-details-true
+                            {% endif %}
+                            ">
+
+
+                            <div class="profile-image uk-text-center">
+                            <img src="{{ object.user.profile.userimage }}" alt=""  width="119px" height="119px" style="object-fit: cover;">
+                            
+
+
+                            </div>
+
+
+                            <div class="profile-details-info   ml-1 
+                            mt-3
+                            uk-text-center uk-hidden@m">
+                             
+                             <div class="uk-flex uk-flex-middle uk-flex-center">
+
+                               {% if object.user.profile.verified == True %} <i class="mdi-check-decagram mdi text-green uk-text-center"></i> 
+                                <span class=" uk-text-meta uk-text-center"> Verified Account </span>{% endif %} 
+
+                             </div>
+
+                            <strong class="uk-text-bold my-2 uk-text-xlarge text-black  ">{{ object.user.first_name |truncatechars:30 }} </strong>
+
+                            <p class="uk-margin-large-top@m  uk-text-small text-black">
+                               {{ object.user.profile.title }}
+                            </p>
+
+
+                           
+
+
+
+                   
+                    
+                        </div>
+
+                              
+                            
+                           
+                        
+                          
+                    </div>
+
+                    
+                    </div>
+                                               
+                                            </div>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-expand@m   uk-flex uk-flex-middle">
+
+                                        <div class="">
+
+                                            <p class="uk-visible@m">
+                                                
+                                            
+
+                                            {% if object.user.profile.verified == True %} <i class="mdi-check-decagram mdi text-green uk-text-center"></i> 
+                                <span class=" uk-text-meta uk-text-center"> Verified Account </span>{% endif %} 
+
+                                            </p>
+                                         <h3 class="uk-text-xlarge  uk-visible@m text-black uk-text-bold uk-h1@m " style="">
+                                                  {{ object.user.first_name |truncatechars:70 }} 
+                                                </h3>
+
+                                                <p class="uk-margin-large-top@m uk-visible@m text-black uk-text-small">
+                                                    {{ object.user.profile.title }}
+                                                </p>
+
+                                                
+
+                                                 <p class="uk-margin-large-top@m my-4 uk-visible@m">
+                                                    {{ object.user.profile.description }}
+                                                </p>
+
+                                                <p class="uk-margin-large-top@m uk-visible@m uk-text-meta">
+                                                    <a href=""></a>{{ object.user.profile.website }}
+                                                </p>
+
+
+                                             
+
+
+
+                                               
+                                                
+                                               <div class="uk-grid-large uk-visible@m uk-grid" data-uk-grid="">
+
+                                                    <div class="uk-width-expand@m">
+                                                       <div uk-grid class="uk-grid">
+
+                            
+                        
+
+                            {% if object.user.profile.twitter %}
+
+                             <a href="{{ object.user.profile.twitter }}">
+                                    <div>
+                                    <div class="is_round rounded-xlg bg-white">
+                                        <i class="mdi mdi-twitter text-black icon-m"></i>
+                                    </div>
+                                    </div>
+                                </a>
+                                {% endif %}
+
+                                {% if object.user.profile.instagram %}
+                                <a href="{{ object.user.profile.instagram }}">
+                                    <div>
+                                    <div class="is_round rounded-xlg bg-white">
+                                        <i class="uil-instagram text-black icon-m"></i>
+                                    </div>
+                                    </div>
+                                </a>
+                                {% endif %}
+
+                            </div> 
+                                                    </div>
+
+                                                    {% if object.user.profile.website %}
+
+                                                    <div class="uk-width-auto@m uk-grid">
+                                                        <a href="{{ object.user.profile.website }}">
+                                    <div>
+                                    <div class="is_round rounded-xlg bg-white">
+                                        <i class="uil-globe text-black icon-m"></i>
+                                    </div>
+                                    </div>
+                                </a>
+
+                               
+
+                                                    </div>
+
+                                                    {% endif %}
+                                                    
+                                                </div>
+                                                
+                        
+                                                </div>
+
+
+                                                
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+
+
+        <div class="uk-container m-auto">
+          <div class="uk-grid" uk-grid="">
+          <div class="uk-width-1-1@m  m-auto uk-width-1-2@s">
+
+
+{% if projects %}
+          <div class="uk-container">
+
+
+
+ {% if projects %}
+
+              <div class="uk-width-1-1@m ">
+              <div class=" rounded-lg">
+               <div class="uk-grid mb-2 mt-7">
+                  
+                  <div class="uk-width-expand uk-flex uk-flex-middle">
+                    <div>
+                    <h4 class="mt-0 mb-0"> Projects</h4>
+
+                    <small>Articles and stories</small>
+                  </div>
+                  </div>
+
+
+                </div>
+
+
+    <div class="uk-child-width-1-1@m uk-child-width-1-1@s uk-grid-large uk-grid" uk-grid="" >
+
+         {% for m in projects %}
+
+            <div class="uk-first-column">
+                            <div class="uk-card rounded-xxlg bg-pH uk-scrollspy-inview uk-animation-fade" style="">
+                                <div class="uk-grid-collapse uk-grid-match uk-grid" data-uk-grid="">
+                                    <div class="uk-width-expand@m">
+                                        <div class="uk-panel rounded-xxlg uk-overflow-hidden">
+                                            <canvas width="784" height="588"></canvas>
+                                            <img src="{{ m.thumbnail }}" alt="image" data-uk-cover="" class="uk-cover" style="height: 450px; width: 675px;">
+                                            <!-- Light -->
+                                            <div class="dark:uk-hidden">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m" style="background-image: linear-gradient(to right, black 8.33%, transparent);"></div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m" style="background-image: linear-gradient(to top, black 8.33%, transparent);"></div>
+                                            </div>
+                                            <!-- dark -->
+                                            <div class="uk-hidden dark:uk-visible">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m">
+                                                    
+                                                </div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-2@m uk-flex-first@m uk-first-column">
+                                        <div class="uk-panel  uk-card-small uk-card-xlarge@m uk-padding-remove-right@m   uk-flex uk-flex-middle ">
+                                            <div class="uk-card-body">
+                                            <div class="uk-panel">
+                                                <h3 class="uk-h1 uk-text-bold uk-h1@m uk-margin-large-top@m">{{ m.title }}</h3>
+                                                <p class="uk-text-medium@m">
+                                                    {{ m.description |truncatechars:300 |escape}} 
+                                                </p>
+                                            </div>
+                                            <div class="uk-margin-top">
+                                                <a href="{% url 'project_detail' m.id %}" class="button dark large">
+                                                    <span>View case study</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            {% endfor %}
+
+                 
+                </div>
+
+            </div>
+          </div>
+
+
+          {% endif %}
+
+
+               
+
+
+
+            </div><!-- col -->
+
+ {% else %}
+                           <div class="uk-card">
+                          <div class="uk-width-expand uk-card-body">
+                            <div class="uk-text-center text-black">
+                             <i class=" mdi mdi-pulse icon-xlarge"></i>
+                            </div>
+                           <h3 class="uk-text-center my-2">No contents yet</h3>
+                           </div>
+                           </div>
+{% endif %}
+          </div><!-- row -->
+        </div><!-- container -->
+      </div>
+
+
+{% endblock %}

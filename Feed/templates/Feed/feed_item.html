@@ -1,0 +1,202 @@
+{% extends 'Core/base.html' %}
+
+{% block title %}Items{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Content
+    ================================================== -->
+
+<!-- style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #212529 60%);" -->
+
+<div uk-height-viewport="" class="uk-height-viewport main_content_logout " >
+
+                        <div class="uk-container ">
+
+                            <p class="text-black uk-text-xlarge uk-text-bold">Marketplace</p>
+<ul class="uk-breadcrumb">
+    <li><a href="{% url 'feed' %}">Home</a></li>
+    <li class="uk-active"><a>Market</a>
+</ul>
+
+  {% for item in featured_item %}
+                        <div class="uk-first-column uk-visible@m">
+                            <div class="uk-card rounded-xxlg bg-pH uk-scrollspy-inview" style="">
+                                <div class="uk-grid-collapse uk-grid-match uk-grid" data-uk-grid="">
+                                    <div class="uk-width-expand@m">
+                                        <div class="uk-panel rounded-lg-r uk-overflow-hidden">
+                                            <canvas width="784" height="588"></canvas>
+                                            <img src="{{ item.thumbnail }}" alt="image" data-uk-cover="" class="uk-cover" style="height: 406px; width: 474px;">
+                                            <!-- Light -->
+                                            <div class="dark:uk-hidden">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m" style="background-image: linear-gradient(to right, #EAECF0 8.33%, transparent);"></div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m" style="background-image: linear-gradient(to top, #EAECF0 8.33%, transparent);"></div>
+                                            </div>
+                                            <!-- dark -->
+                                            <div class="uk-hidden dark:uk-visible">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m">
+                                                    
+                                                </div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-2@m uk-flex-first@m uk-first-column">
+                                        <div class="uk-panel  uk-card-small uk-card-xlarge@m uk-padding-remove-right@m   uk-flex uk-flex-middle ">
+                                            <div class="uk-card-body">
+                                            <div class="uk-panel">
+                                                <h4 class="uk-text-bold uk-text-xxlarge">
+                                                    {{ item.short_title |truncatechars:100 |escape }}
+                                                </h4>
+                                                <p class="">
+                                                {{ item.about |truncatechars:100 |escape }}
+                                                </p>
+
+                                                
+                                            </div>
+                                            <div class="uk-margin-top">
+                                                <a href="{% url 'item_detail' item.id %}" class="button dark large">
+                                                    <span>View item</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+  {% endfor %}
+
+
+      <div class="my-4 uk-hidden">
+           <nav class="responsive-tab style-1">
+                        <ul>
+                            <li class="{% if request.resolver_match.url_name == 'feed_item' %} uk-active {% endif %}" ><a href="{% url 'feed_item' %}"><b class="uk-text-bold">All</b></a></li>
+
+                            
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_item_gadget' %} uk-active {% endif %}" ><a href="{% url 'feed_item_gadget' %}"> <b class="uk-text-bold">Remote work & Travel Gears.</b></a></li>
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_item_software' %} uk-active {% endif %}" ><a href="{% url 'feed_item_software' %}"> <b class="uk-text-bold">Web themes & Funnels.</b></a></li>
+                            
+                        </ul>
+                    </nav>
+      </div>
+
+ 
+                        <div class="uk-width-1-1 mt-3">
+                        
+
+                        <div class="uk-child-width-1-3@m uk-child-width-1-1 uk-grid" uk-grid="" uk-height-match="target: > div > .uk-card; row: false">
+                        
+                                                 {% for note in item %}
+
+                                                 <div class="uk-first-column">
+                            <a href="{% url 'item_detail' note.id %}" target="blank">
+                            <div class="uk-card rounded-lg uk-box-shadow-large uk-card-default bg-dark uk-scrollspy-inview uk-animation-fade" style="">
+                                <div class="uk-grid-collapse uk-grid-match uk-grid">
+                                    <div class="uk-width-1-1">
+                                        <div class="uk-panel rounded-lg uk-overflow-hidden">
+                                            <canvas width="784" height="588"></canvas>
+                                            <img src="{{ note.thumbnail }}" alt="image" data-uk-cover="" class="uk-cover" style="height: 280px; width: 421px;">
+                                            <!-- Light -->
+                                            <div class="dark:uk-hidden">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m" style="background-image: linear-gradient(to top, black 8.33%, transparent);"></div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m" style="background-image: linear-gradient(to top, black 8.33%, transparent);"></div>
+                                            </div>
+                                            <!-- dark -->
+                                            <div class="uk-hidden dark:uk-visible">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m">
+                                                    
+                                                </div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-1@m mb-4 uk-flex-last uk-first-column">
+                                        <div class="uk-panel  uk-card-small uk-card-xlarge@m uk-padding-remove-right@m uk-flex-column uk-flex-between">
+                                            <div class="uk-card-body uk-light">
+                                            <div class="uk-panel">
+                                                <div class="uk-text-small uk-text-gray-70 dark:uk-text-gray-40">
+                                                    <span>{{ note.currency }} {{ note.price }}</span>
+                                                </div>
+                                                <h3 class="uk-h1 uk-text-bold uk-h1@m uk-margin-large-top@m">{{ note.short_title |truncatechars:100 |escape }}</h3>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                        
+                        {% endfor %}
+
+                </div>
+
+
+   
+
+
+
+
+        
+        </div>
+
+        
+  
+
+
+
+
+            </div>
+
+            <div>
+
+
+
+
+
+    </div>
+
+                                {% if is_paginated %}
+                             <div class="uk-flex uk-flex-center">
+                                <ul class="uk-pagination my-5" uk-margin>
+                             {% if is_paginated %}
+
+                             {% if page_obj.has_previous %}
+                             <li><a href="?page=1">First</a></li>
+                             <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+
+                             {% endif %}
+
+                             {% for num in page_obj.paginator.page_range %}
+                             
+                             {% if page_obj.number == num %}
+                              <li class="uk-active"><a href="?page={{ num }}">{{ num }}</a></li>
+                              {% elif num > page_obj.number|add:'-2' and page_obj.number|add:'2' %}
+                              <li ><a href="?page={{ num }}">{{ num }}</a></li>
+
+                             {% endif %}
+                             {% endfor %}
+
+                             {% if page_obj.has_next %}
+                             <li><a href="?page={{page_obj.next_page_number}}">Next</a></li>
+                             <li><a href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+
+                             {% endif %}
+
+                             {% endif %}
+                               </ul>
+                             </div>
+                            {% endif %}
+</div>
+
+
+{% endblock %}

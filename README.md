@@ -1,2 +1,2 @@
-# be
-Django portfolio app
+# Be
+ 

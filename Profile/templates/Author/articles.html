@@ -1,0 +1,394 @@
+{% extends 'Core/base.html' %}
+
+{% block title %}{{ object.user.first_name }}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Content
+    ================================================== -->
+
+<!-- style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #212529 60%);" -->
+
+<div uk-height-viewport="" class="uk-height-viewport main_content_logout " >
+
+    <div class="uk-container">
+        <p class="text-black uk-text-xlarge uk-text-bold">Author</p>
+<ul class="uk-breadcrumb">
+    <li><a href="{% url 'feed' %}">Home</a></li>
+    <li class=""><a href="{% url 'profile' object.user.username %}">{{ object.user.first_name |truncatechars:30 }}</a></li>
+    <li class="uk-active"><a>Articles</a></li>
+</ul>
+    </div>
+<div class="main_content_inner  pb-0 mb-0 ">
+
+
+                            <div class="uk-scrollspy-inview uk-animation-fade" style="">
+                                <div class="uk-grid-collapse rounded-xxlg uk-grid-match uk-grid" data-uk-grid="">
+                                    <div class="uk-width-auto@m bg-mbl rounded-xxlg uk-flex uk-flex-middle ">
+                                        <div class="uk-panel  uk-card-small uk-card-xlarge@m uk-padding-remove-right@m uk-flex-column uk-flex-between">
+                                            <div class="uk-card-body">
+                                            <div class="uk-panel">
+
+
+                                                                        <div class="profile mt-lg
+                        ">
+                            
+
+                            <div class="
+                            profile-details
+                            {% if object.user.profilepreference.enable_userimage == True %}
+                            profile-details-false
+                            {% else %}
+                            profile-details-true
+                            {% endif %}
+                            ">
+
+
+                            <div class="profile-image uk-text-center">
+                            <img src="{{ object.user.profile.userimage }}" alt=""  width="119px" height="119px" style="object-fit: cover;">
+                            
+
+
+                            </div>
+
+
+                            <div class="profile-details-info   ml-1 
+                            mt-3
+                            uk-text-center uk-hidden@m">
+                             
+                             <div class="uk-flex uk-flex-middle uk-flex-center">
+
+                               {% if object.user.profile.verified == True %} <i class="mdi-check-decagram mdi text-green uk-text-center"></i> 
+                                <span class=" uk-text-meta uk-text-center"> Verified Account </span>{% endif %} 
+
+                             </div>
+
+                            <strong class="uk-text-bold my-2 uk-text-xlarge text-black  ">{{ object.user.first_name |truncatechars:30 }} </strong>
+
+                            <p class="uk-margin-large-top@m  uk-text-small text-black">
+                               {{ object.user.profile.title }}
+                            </p>
+
+
+                           
+
+
+
+                   
+                    
+                        </div>
+
+                              
+                            
+                           
+                        
+                          
+                    </div>
+
+                    
+                    </div>
+                                               
+                                            </div>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-expand@m   uk-flex uk-flex-middle">
+
+                                        <div class="">
+
+                                            <p class="uk-visible@m">
+                                                
+                                            
+
+                                            {% if object.user.profile.verified == True %} <i class="mdi-check-decagram mdi text-green uk-text-center"></i> 
+                                <span class=" uk-text-meta uk-text-center"> Verified Account </span>{% endif %} 
+
+                                            </p>
+                                         <h3 class="uk-text-xlarge  uk-visible@m text-black uk-text-bold uk-h1@m " style="">
+                                                  {{ object.user.first_name |truncatechars:70 }} 
+                                                </h3>
+
+                                                <p class="uk-margin-large-top@m uk-visible@m text-black uk-text-small">
+                                                    {{ object.user.profile.title }}
+                                                </p>
+
+                                                
+
+                                                 <p class="uk-margin-large-top@m my-4 uk-visible@m">
+                                                    {{ object.user.profile.description }}
+                                                </p>
+
+                                                <p class="uk-margin-large-top@m uk-visible@m uk-text-meta">
+                                                    <a href=""></a>{{ object.user.profile.website }}
+                                                </p>
+
+
+                                             
+
+
+
+                                               
+                                                
+                                               <div class="uk-grid-large uk-visible@m uk-grid" data-uk-grid="">
+
+                                                    <div class="uk-width-expand@m">
+                                                       <div uk-grid class="uk-grid">
+
+                            
+                        
+
+                            {% if object.user.profile.twitter %}
+
+                             <a href="{{ object.user.profile.twitter }}">
+                                    <div>
+                                    <div class="is_round rounded-xlg bg-white">
+                                        <i class="mdi mdi-twitter text-black icon-m"></i>
+                                    </div>
+                                    </div>
+                                </a>
+                                {% endif %}
+
+                                {% if object.user.profile.instagram %}
+                                <a href="{{ object.user.profile.instagram }}">
+                                    <div>
+                                    <div class="is_round rounded-xlg bg-white">
+                                        <i class="uil-instagram text-black icon-m"></i>
+                                    </div>
+                                    </div>
+                                </a>
+                                {% endif %}
+
+                            </div> 
+                                                    </div>
+
+                                                    {% if object.user.profile.website %}
+
+                                                    <div class="uk-width-auto@m uk-grid">
+                                                        <a href="{{ object.user.profile.website }}">
+                                    <div>
+                                    <div class="is_round rounded-xlg bg-white">
+                                        <i class="uil-globe text-black icon-m"></i>
+                                    </div>
+                                    </div>
+                                </a>
+
+                               
+
+                                                    </div>
+
+                                                    {% endif %}
+                                                    
+                                                </div>
+
+                                                
+                        
+                                                </div>
+
+
+                                                
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+
+
+        <div class="uk-container m-auto">
+          <div class="uk-grid" uk-grid="">
+          <div class="uk-width-1-1@m  m-auto uk-width-1-2@s">
+
+
+{% if items or articles or authors or tools or services %}
+          <div class="uk-container">
+            
+{% if tools %}
+                          <div class="uk-width-1-1@m ">
+              <div class=" rounded-lg">
+               <div class="uk-grid mb-4">
+                <div class="uk-width-expand uk-flex uk-flex-middle">
+                    <div>
+                    <h4 class="mt-0 mb-0">Tools</h4>
+
+                    <small>Gadgets and tools</small>
+                  </div>
+                  </div>
+                  <div class="uk-width-auto">
+                    <div class="is_web text-green ">
+      <i class="mdi  mdi-hammer-screwdriver  icon-web"></i>  
+    </div>
+                  </div>
+                  
+                </div>
+<div class="uk-child-width-1-3@s uk-child-width-1-1 uk-grid" uk-grid="" uk-height-match="target: > div > .uk-card; row: false">
+                        
+                                                 {% for note in tools %}
+
+
+                                                 <div class="uk-first-column">
+                            <a href="{% url 'tool_detail' note.id %}" target="blank">
+                            <div class="uk-card rounded-lg  bg-pH uk-scrollspy-inview uk-animation-fade" style="">
+                                <div class="uk-grid-collapse uk-grid-match uk-grid">
+                                    <div class="uk-width-1-1">
+                                        <div class="uk-panel rounded-lg uk-overflow-hidden">
+                                            <canvas width="784" height="688"></canvas>
+                                            <img src="{{ note.thumbnail }}" alt="image" data-uk-cover="" class="uk-cover" style="height: 280px; width: 421px;">
+                                            <!-- Light -->
+                                            <div class="dark:uk-hidden">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m" style="background-image: linear-gradient(to top, black 8.33%, transparent);"></div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m" style="background-image: linear-gradient(to top, black 8.33%, transparent);"></div>
+                                            </div>
+                                            <!-- dark -->
+                                            <div class="uk-hidden dark:uk-visible">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m">
+                                                    
+                                                </div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-1@m mb-4 uk-flex-last uk-first-column">
+                                        <div class="uk-panel  uk-card-small uk-card-xlarge@m uk-padding-remove-right@m uk-flex-column uk-flex-between">
+                                            <div class="uk-card-body">
+                                            <div class="uk-panel">
+                                                <h3 class="uk-h3 uk-text-bold uk-h1@m uk-margin-large-top@m">{{ note.title |truncatechars:100 |escape }}</h3>
+                                                <p class="uk-text-meta">
+                                                    {{ note.tagline |truncatechars:100 |escape }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                        {% endfor %}
+
+                        
+
+                </div>
+
+            </div>
+          </div>
+          {% if tools|length > 4 %}
+
+            <div class="">
+                <div class=" uk-width-1-2@m m-auto uk-flex uk-flex-center mb-2">
+                <a href="{% url 'result_tools' %}" class="uk-width-1-1 uk-button dark uk-button-default rounded-lg">
+                    <i class="mdi-chevron-down mdi icon-small edium"></i>
+                </a>
+                </div>
+            </div>
+          {% endif %}
+
+
+{% endif %}
+
+            {% if articles %}
+            <div class="uk-width-1-1@m ">
+              <div class=" rounded-lg">
+
+                <div class="uk-grid mb-4">
+                  
+                  <div class="uk-width-expand uk-flex uk-flex-middle">
+                    <div>
+                    <h4 class="mt-0 mb-0"> Press</h4>
+
+                    <small>Articles and stories</small>
+                  </div>
+                  </div>
+                  <div class="uk-width-auto">
+                    <div class="is_web text-teal ">
+      <i class="mdi  mdi-book-open-blank-variant  icon-web"></i>  
+    </div>
+                  </div>
+                </div>
+
+<div class="uk-child-width-1-3@m uk-child-width-1-1@s  uk-grid ">
+
+                {% for note in articles %}
+                <div>
+                     <a href="{% url 'article_detail' note.id %}" class="blog-post">
+                            <!-- Blog Post Thumbnail -->
+                            <div class="uk-background-cover uk-panel rounded-note uk-box-shadow-medium embed-video-article" style="background-image: url({{ note.thumbnail }});">
+                            
+                            <span class="ico-bottom-left">
+                              <i class="mdi mdi-book-open-page-variant icon-small"></i>
+                            </span>
+
+                            </div>
+                            <!-- Blog Post Content -->
+                            <div class="blog-post-content">
+                                <div class="blog-post-content-info">
+                    {% if note.finance == True %}
+                    <span class="blog-post-info-tag button soft-primary"> Finance </span>
+                    {% endif %}
+                    {% if note.travel == True %}
+                    <span class="blog-post-info-tag button soft-danger"> Travel </span>
+                    {% endif %}
+                    {% if note.health == True %}
+                    <span class="blog-post-info-tag button soft-dark"> Health </span>
+                    {% endif %}
+                    {% if note.technology == True %}
+                    <span class="blog-post-info-tag button soft-pink"> Technology </span>
+                    {% endif %} 
+                    {% if note.worklife == True %}
+                    <span class="blog-post-info-tag button soft-danger"> Worklife </span>
+                    {% endif %} 
+                    {% if note.culture == True %}
+                    <span class="blog-post-info-tag button soft-danger"> Culture </span>
+                    {% endif %} 
+                                    
+                                    <span class="blog-post-info-date">{{ note.date }}</span>
+                                </div>
+                                <h3 class="text-black">{{ note.title |truncatechars:100 |escape }} </h3>
+                                <p>{{ note.description |truncatechars:100 |escape }} </p>
+                            </div>
+                        </a>
+                </div>
+                    {% endfor %}
+            </div>
+
+            </div>
+          </div>
+
+          {% if articles|length > 3 %}
+
+            <div class="">
+                <div class=" uk-width-1-2@m m-auto uk-flex uk-flex-center mb-2">
+                <a href="{% url 'result_articles' %}" class="uk-width-1-1 uk-button dark uk-button-default rounded-lg">
+                    <i class="mdi-chevron-down mdi icon-small edium"></i>
+                </a>
+                </div>
+            </div>
+          {% endif %}
+
+
+               
+
+
+
+            </div><!-- col -->
+
+ {% else %}
+                           <div class="uk-card">
+                          <div class="uk-width-expand uk-card-body">
+                            <div class="uk-text-center text-black">
+                             <i class=" mdi mdi-pulse icon-xlarge"></i>
+                            </div>
+                           <h3 class="uk-text-center my-2">No contents yet</h3>
+                           </div>
+                           </div>
+{% endif %}
+          </div><!-- row -->
+        </div><!-- container -->
+      </div>
+
+
+{% endblock %}

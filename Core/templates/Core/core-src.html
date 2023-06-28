@@ -1,0 +1,451 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<title>{% block title %} {% endblock %}</title>
+<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+<meta name="description" content="Advice, insights and evergreen strategies to build a borderless digital economy" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<link rel="canonical" href="https://berrydzhobs.com/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ object.date }}" />
+<meta property="og:description" content="{{ object.description }}" />
+<meta property="og:url" content="https://berrydzhobs.com/" />
+<meta property="og:site_name" content="Берри Джобс" />
+<meta property="article:modified_time" content="{{ object.date }}" />
+<meta property="og:image" content="{{ object.thumbnail }}" />
+<meta property="og:image:width" content="828" />
+<meta property="og:image:height" content="290" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:label1" content="Est. reading time">
+<meta name="twitter:data1" content="10 minutes">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/fv.png'%}" type="image/x-icon"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/fv.png'%}">
+
+    <!-- CSS 
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/fb.css'%}">
+    <link rel="stylesheet" href="{% static 'css/square.css'%}">
+    <link rel="stylesheet" href="{% static 'css/C0R3.css'%}">
+    <link rel="stylesheet" href="{% static 'css/night-mode.css'%}">
+    <link rel="stylesheet" href="{% static 'css/framework.css'%}">
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+    <link rel="stylesheet" href="{% static 'Player/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Player/iqframework.css' %}">
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'css/icons.css'%}">
+    <link rel="stylesheet" href="{% static 'docs/css/ionicons.min.css'%}">
+    
+    <link href="{% static 'mdi/css/mdi.css'%}" media="all" rel="stylesheet" type="text/css" />
+
+    <!-- Fonts and icons -->
+    <script src="{% static 'assets/css/webfont.min.js'%}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/fonts.min.css'%}" media="all">
+    <script>
+        WebFont.load({
+            google: {"families":["Lato:300,400,700,900"]},
+            custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['{% static 'assets/css/fonts.min.css' %}']},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+      <!-- Google font
+    ================================================== -->
+    
+    <!--<link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,500,600" rel="stylesheet"> -->
+
+    <link href="https://fonts.googleapis.com/cssff98.css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    
+    <style>
+        #main_header { box-shadow: none !important;}
+        [class~=post] { box-shadow: none !important;}
+    </style>
+    
+</head>
+
+<body class="bg-pH">
+
+
+    <!-- READING POSITION INDICATOR -->
+    <progress value="0" id="eskimo-progress-bar">
+        <span class="eskimo-progress-container">
+            <span class="eskimo-progress-bar"></span>
+        </span>
+    </progress>
+
+<a href="#br" uk-toggle>
+<div class="t00lb0x-toggl3">
+        <div class="header-btn-traiger" >
+            <span>
+                
+            </span>
+        </div>
+</div>
+</a>
+
+
+<div class="pod-btn-txt-top-left">
+    <div class="p-2  rounded uk-visible@m mr-3">
+      <a href="{% url 'feed' %}" class="uk-flex uk-flex-middle  {% if request.resolver_match.url_name == 'feed' %}text-white {% else %} text-black {% endif %} uk-text-bold uk-text-xlarge rounded" uk-tooltip="title:Logo; pos: bottom ;offset:7;" > Be.
+                        </a>
+    </div>
+    
+    
+    </div>
+
+<div class="pod-btn-txt-top-right">
+    <a  href="{% url 'sitemap' %}">
+    <div class="p-2  rounded uk-visible@m">
+     <i class="mdi mdi-file-tree text-black icon-web"></i>
+    </div></a>
+    
+    </div>
+
+</div>
+
+
+
+<div class="pod-btn-txt-bottom-left uk-visible@m">
+   
+    <div class="uk-box-shadow-large p-2  rounded uk-box-shadow-small  mr-3">
+      <a href="https://www.twitter.com/BerryDzhobs" class="uk-flex uk-flex-middle" >
+                             <i class="mdi mdi-twitter {% if request.resolver_match.url_name == 'feed' %}text-white {% else %} text-black {% endif %} icon-small"></i>
+      </a>
+    </div>
+
+    <div class="uk-box-shadow-large p-2  uk-box-shadow-small rounded">
+      <a href="https://www.instagram.com/BerryDzhobs" class="uk-flex uk-flex-middle">
+                             <i class="mdi-instagram {% if request.resolver_match.url_name == 'feed' %}text-white {% else %} text-black {% endif %} mdi icon-small"></i>
+      </a>
+    </div>
+
+</div>
+
+<div class="pod-btn-txt-bottom-right uk-visible@m">
+    <div class="uk-box-shadow-large p-2  uk-box-shadow-small rounded mr-3">
+      <a href="https://www.github.com/BerryDzhobs" class="uk-flex uk-flex-middle" >
+                             <i class="mdi mdi-github text-black icon-small"></i>
+      </a>
+    </div>
+    
+
+    <div class="uk-box-shadow-large p-2  uk-box-shadow-small rounded">
+      <a href="https://www.t.me/BerryDzhobs" class="uk-flex uk-flex-middle" >
+                             <i class="mdi-telegram text-black  mdi icon-small"></i>
+      </a>
+    </div>
+
+</div>
+
+
+<div class="mb-0 pb-0 bg-pH">
+        <!-- MAIN CONTAINER -->
+        {% block content %}
+
+        {% endblock %}
+     
+</div>
+        {% load static %}
+
+
+
+<footer class="pt-0 pb-0 bg-dark uk-hidden@m">
+  <div class="uk-flex uk-flex-center">
+                
+                <div id="foot" class="uk-text-center mt-7">
+                <i class="mdi mdi-fruit-grapes icon-xmedium"></i>
+                <h1 class="text-white">Берри Джобс</h1>
+                <ul>
+                    <li> <a href="{% url 'feed' %}"> Home </a> </li>
+                    <li> <a href="{% url 'about' %}"> About me </a> </li>
+                    <li> <a href="{% url 'feed_project' %}"> Works </a> </li>
+                    <li> <a href="{% url 'feed_article' %}"> Press </a> </li>
+                    <li> <a href="{% url 'feed_item' %}"> Marketplace </a> </li>
+                    <li> <a href="{% url 'feed_tool' %}" > Resources </a> </li>
+                    <li> <a href="{% url 'feed_client' %}">Testimonials</a> </li>
+                    <li> <a href="{% url 'feed_service' %}">Services</a> </li>
+                    <li> <a href="{% url 'contact' %}">Contacts</a> </li>
+                    <li> <a href="{% url 'tp' %}">Terms & Policies</a> </li>
+                    <li> <a href="{% url 'disclaimer' %}"  >Disclaimer</a> </li>
+                     <li> <a href="{% url 'list' %}">Newsletter</a> </li>
+                </ul>
+
+                <div class="foot-content text-white uk-text-center pt-2">
+                  <ul>
+                    <li>&copy; <span >Building For Entrepreneurs pvte</span> <script>document.write(new Date().getFullYear());</script></li>
+                </ul>
+                  <p class="uk-text-meta mt-3">Adress: A32 , Ave 15th Street, Door 211, Budapest, HU 32490.</p>
+                </div>
+                </div>
+                </div>
+</footer>
+
+           <div class="W3B bg-white header-shadow uk-hidden uk-visible@m">
+      <div class="px-4">
+            <div id="web_header">
+              <div id="branding">
+
+              <a href="" class="mr-3">
+              <i class="mdi-web  mdi icon-small"></i>
+              </a>
+
+
+              <a href="" class="ml-3 mr-3">
+              <i class="mdi-instagram mdi icon-small"></i>
+              </a>
+
+
+<!-- 
+              <a href="/" class="ml-3 mr-3">
+              <i class="mdi-comment mdi icon-small"></i>
+              </a>
+
+
+              <a href="/" class="ml-3">
+              <i class="mdi-bell mdi icon-small"></i>
+              </a>
+ -->
+
+
+              </div>
+        
+        
+        <div id="user-tools uk-flex uk-flex-middle">
+
+                    
+                <a href="" class="ml-3">
+                  &copy;Building For Entrepreneurs
+                </a>
+            
+        </div>
+        
+        
+        
+    </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Qt Footer -->
+    <div id="LetsTalk" class="uk-modal-container uk-modal" uk-modal>
+    <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
+        <button class="uk-modal-close-full uk-authentications-close uk-icon-button " type="button" uk-close></button>
+       <div class="uk-container">
+
+       
+
+                                <div class="uk-grid-collapse mt-4 mb-4 uk-grid-match uk-grid" data-uk-grid="">
+                                    <div class="uk-width-expand@m">
+                                        <div class="uk-panel rounded-lg-r uk-overflow-hidden">
+
+                                            <canvas width="784" height="588"></canvas>
+                                            <img src="../assets/images/j.jpg" alt="image" data-uk-cover="" class="uk-cover" style="height: 450px; width: 675px;">
+
+                                            
+                                            <!-- Light -->
+                                            <div class="dark:uk-hidden">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m" style="background: linear-gradient(to right, #003dff,#3c2aff,#db00d4);-webkit-background-clip: background; color: transparent; -webkit-box-decoration-break: clone;"></div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m" style="background: linear-gradient(to right, #003dff,#3c2aff,#db00d4);-webkit-background-clip: background; color: transparent; -webkit-box-decoration-break: clone;"></div>
+                                            </div>
+                                            <!-- dark -->
+                                            <div class="uk-hidden dark:uk-visible">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m">
+                                                    
+                                                </div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-2@m uk-flex-first@m uk-first-column">
+                                        <div class="uk-panel  uk-card-small uk-card-xlarge@m uk-padding-remove-right@m uk-flex-column uk-flex-between">
+                                            <div class="uk-card-body">
+                                                 <div class="my-4">
+                        <p class="text-black uk-text-large uk-text-bold">Let's Talk</p>
+                    </div>
+                                            <div class="uk-panel">
+
+                                                <form method="POST">
+                    
+
+                    
+
+                    <div class="uk-form-group my-4">
+                        <div class="uk-position-relative">
+                            <input class="uk-input uk-form-large bg-dark rounded uk-text-meta " type="name" placeholder="Your Name" name="name" id="name" required="">
+                        </div>
+                    </div>
+
+                    <div class="uk-form-group">
+                        <div class="uk-margin uk-position-relative">
+                         <textarea name="bio" cols="40" rows="5" class="uk-textarea bg-dark rounded" placeholder="Example: Entrepreneur from south west CA... " id="id_bio">Drop a small intro and how i can help you ?</textarea>
+                        </div>
+                    </div>
+
+                    <div class="uk-form-group my-4">
+                        <div class="uk-position-relative">
+                            <input class="uk-input uk-form-large bg-dark rounded uk-text-meta " type="number" placeholder="Example:$1000" name="name" id="name" required="">
+                        </div>
+                    </div>
+
+                    <div class="uk-form-group my-4">
+                        <div class="uk-position-relative">
+                            <input class="uk-input uk-form-large bg-dark rounded uk-text-meta " type="email" placeholder="Your best email to reach you out!" name="email" id="password" required="">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="button primary rounded-lg large block mt-3 mb-4"> Send Brief </button>
+                    </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+           
+    </div>                     
+</div>
+
+
+      <div id="QU1K1QS3RCH" class="uk-modal-full uk-animation-slide-bottom uk-modal" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-full uk-authentications-close uk-icon-button" type="button" uk-close></button>
+         <!-- Content
+    ================================================== -->
+    <div uk-height-viewport="" class=" form-media uk-flex uk-flex-middle">
+
+         <div class=" uk-grid-collapse uk-grid-match uk-grid " uk-grid="">
+
+    <!-- Content
+    ================================================== -->
+
+      
+        <div uk-height-viewport="" class="uk-width-expand bg-secondary  uk-height-viewport uk-flex uk-flex-middle ">
+            <div class="uk-width-1-1@m m-auto uk-width-1-2@s uk-container">
+
+                <div class="my-4 uk-text-center ">
+
+
+
+
+            <div class="text-black uk-text-medium mt-5">
+                   <a href="#i574R7" uk-toggle class="text-black uk-text-bold" > START HERE <i class="mdi mdi-arrow-top-right icon-medium"></i> </a>
+                    </div>
+
+            </div>  
+
+            </div>       
+        </div>
+
+
+<div  uk-height-viewport="" class="uk-width-1-2@m   uk-height-viewport bg-dark uk-width-1-2@s uk-flex-first@m uk-first-column uk-flex uk-flex-middle">
+<div class="uk-container">
+    <p class="uk-text-large   rounded    uk-margin-large-top@m ">
+     Я
+    </p>
+    <h1 class="text-white">Берри Джобс</h1>
+    <p class="uk-text-large   rounded    uk-margin-large-top@m ">
+     Предприниматель, Инженер-программист и Промышленный дизайнер
+    </p>
+    <p class="uk-text-medium">Adress: A32 , Ave 15th Street, Door 211, Budapest, HU 32490.
+</p>
+  
+<div class="mt-5">
+
+  <strong class="text-white ">&copy; <script>document.write(new Date().getFullYear());</script> <span >Building For Entrepreneurs pvte</span> </strong>
+  
+</div>
+
+</div>
+</div>
+
+
+</div>
+
+    </div>
+
+                       
+    </div>                     
+</div>
+    
+
+{% include 'Core/toolbox.html' %}
+{% include 'Core/footer.html' %}
+
+<script type="text/javascript">
+$(document).ready(function () {
+    //Disable cut copy paste
+    $('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+   
+    //Disable mouse right click
+    $("body").on("contextmenu",function(e){
+        return false;
+    });
+});
+</script>
+<script>
+  document.onkeydown = function(e) {
+if(event.keyCode == 123) {
+return false;
+}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+return false;
+}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+return false;
+}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+return false;
+}
+if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+return false;
+}
+}
+
+</script>
+    <script src="{% static 'js/framework.js' %}"></script>
+    <script src="{% static 'js/night-mode.js' %}"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/simplebar.js' %}"></script>
+    <script src="{% static 'js/atlantis.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/fb.js' %}"></script>
+    <script src="{% static 'js/sqr.js' %}"></script>
+    <script src="{% static 'js/swiper6.js' %}"></script>
+    <script src="{% static 'js/swiper-helper.js' %}"></script>
+    <script src="{% static 'js/voice.js' %}"></script>
+    <script src="{% static 'js/n.js' %}"></script>
+    <script src="{% static 'js/n.js' %}"></script>
+    <script src="{% static 'js/iqicons.js' %}"></script>
+    {% for message in messages %}
+    <script type="text/javascript">
+    UIkit.notification({
+    message: '<div class=\'uk-grid-small p-5 rounded-3 bg-dark uk-light uk-flex uk-flex-center  shadow-dark uk-padding-small\' style=\'margin: -15px ; padding-left:0px \' uk-grid><div class=\'uk-width-1-1 m-auto\'><i class=\'mdi text-white mdi-bell-ring icon-xmedium\'></i></div><div class=\'uk-width-expand\'><small class=\'text-white\'> {{ message }} </small></div></div>',
+    pos: 'bottom-right',
+    timeout: 5000
+    });
+   </script>
+   {% endfor %}
+</body>
+</html>

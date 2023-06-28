@@ -1,0 +1,65 @@
+{% extends 'Core/core-page.html' %}
+
+{% block title %}SideHustle{% endblock %}
+
+{% block content %}
+{% load static %}
+
+{% load humanize %}
+{% load hitcount_tags %}
+
+{% include 'Core/toolbox.html' %}
+<div class="uk-height-viewport uk-flex uk-flex-middle pt-2 pb-2 bg-secondary" uk-height-viewport="" style="min-height: calc(100vh);">
+       
+       <div class="uk-width-1-2@m m-auto">
+
+       
+
+                                    <div class=" m-auto">
+
+                                        <div class="uk-panel  rounded-video  uk-height-viewport  uk-card">
+                                            <div class="uk-card-body">
+                                   
+ <div class="my-4 bg-white p-7 rounded-lg uk-box-shadow-medium">
+                                                
+
+                                                
+<p class="text-black uk-text-large">The <span class="qt-font-p uk-text-xlarge">Insanely</span> simple <span class="qt-font-p uk-text-xlarge">Framework</span>
+
+i used to create multiple <b>$ 700 /day</b> side hustle business that <span class="qt-font-p uk-text-xlarge">run auto pilot.</span></p>
+
+                            
+
+                       </div>
+
+
+                       
+
+                        <form method="POST">
+                {% csrf_token %}
+
+                     <div class="uk-form-group mt-3">
+                        <div class="uk-position-relative mt-3">
+                            {{ form.as_p }}
+                        </div>
+                    </div>
+
+                    
+
+
+
+
+        <div class="uk-margin uk-text-center p-7 bg-white uk-box-shadow-large rounded-lg">
+          <button type="submit" class="button dark rounded-lg xlarge block mt-3 mb-4"> <i class="mdi mdi-lock"></i> Get access </button>
+                
+          <small class="text-black">&copy; <script>document.write(new Date().getFullYear());</script> <span >Building For Entrepreneurs pvte</span> </small>
+        </div></form>
+
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+           
+    </div>
+{% endblock %}

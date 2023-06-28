@@ -1,0 +1,137 @@
+{% extends 'Core/base.html' %}
+
+{% block title %} Articles {% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Content
+    ================================================== -->
+
+
+<div uk-height-viewport="" class="uk-height-viewport" >
+    <div class="uk-container main_content_logout">
+       <div class="mb-6">
+        <p class="text-black uk-text-xlarge uk-text-bold">Press</p>
+<ul class="uk-breadcrumb">
+    <li><a href="{% url 'feed' %}">Home</a></li>
+    <li class="uk-active"><a>Press</a>
+</ul>
+      </div>
+
+      <div class="my-4 uk-hidden">
+           <nav class="responsive-tab style-1">
+                        <ul>
+                            <li class="{% if request.resolver_match.url_name == 'feed_article' %} uk-active {% endif %}" ><a href="{% url 'feed_article' %}"><b class="uk-text-bold">All</b></a></li>
+
+                            
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_article_finance' %} uk-active {% endif %}" ><a href="{% url 'feed_article_finance' %}"> <b class="uk-text-bold">Finance</b></a></li>
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_article_travel' %} uk-active {% endif %}" ><a href="{% url 'feed_article_travel' %}"> <b class="uk-text-bold">Travel</b></a></li>
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_article_health' %} uk-active {% endif %}" ><a href="{% url 'feed_article_health' %}"> <b class="uk-text-bold">Health</b></a></li>
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_article_technology' %} uk-active {% endif %}" ><a href="{% url 'feed_article_technology' %}"> <b class="uk-text-bold">Tech</b></a></li>
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_article_worklife' %} uk-active {% endif %}" ><a href="{% url 'feed_article_worklife' %}"> <b class="uk-text-bold">Worklife</b></a></li>
+
+                            <li class="{% if request.resolver_match.url_name == 'feed_article_culture' %} uk-active {% endif %}" ><a href="{% url 'feed_article_culture' %}"> <b class="uk-text-bold">Culture</b></a></li>
+                            
+                        </ul>
+                    </nav>
+      </div>
+
+
+        <div>
+            <div class="uk-child-width-1-3@m uk-child-width-1-1@s  uk-grid ">
+
+                {% for note in note %}
+                <div>
+                     <a href="{% url 'article_detail' note.id %}" class="blog-post">
+                            <!-- Blog Post Thumbnail -->
+                            <div class="uk-background-cover uk-panel rounded-note uk-box-shadow-medium embed-video-article" style="background-image: url({{ note.thumbnail }});">
+                            
+                            <span class="ico-bottom-left">
+                              <i class="mdi mdi-book-open-page-variant icon-small"></i>
+                            </span>
+
+                            </div>
+                            <!-- Blog Post Content -->
+                            <div class="blog-post-content">
+                                <div class="blog-post-content-info">
+                    {% if note.finance == True %}
+                    <span class="blog-post-info-tag button soft-primary"> Finance </span>
+                    {% endif %}
+                    {% if note.travel == True %}
+                    <span class="blog-post-info-tag button soft-danger"> Travel </span>
+                    {% endif %}
+                    {% if note.health == True %}
+                    <span class="blog-post-info-tag button soft-dark"> Health </span>
+                    {% endif %}
+                    {% if note.technology == True %}
+                    <span class="blog-post-info-tag button soft-pink"> Technology </span>
+                    {% endif %} 
+                    {% if note.worklife == True %}
+                    <span class="blog-post-info-tag button soft-danger"> Worklife </span>
+                    {% endif %} 
+                    {% if note.culture == True %}
+                    <span class="blog-post-info-tag button soft-danger"> Culture </span>
+                    {% endif %} 
+                                    
+                                    <span class="blog-post-info-date">{{ note.date }}</span>
+                                </div>
+                                <h3 class="text-black">{{ note.title |truncatechars:100 |escape }} </h3>
+                                <p>{{ note.description |truncatechars:100 |escape }} </p>
+                            </div>
+                        </a>
+                </div>
+                    {% endfor %}
+            </div>
+        </div>
+
+       
+
+        
+
+   
+
+
+
+    </div>
+
+                            {% if is_paginated %}
+                             <div class="uk-flex uk-flex-center">
+                                <ul class="uk-pagination my-5" uk-margin>
+                             {% if is_paginated %}
+
+                             {% if page_obj.has_previous %}
+                             <li><a href="?page=1">First</a></li>
+                             <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+
+                             {% endif %}
+
+                             {% for num in page_obj.paginator.page_range %}
+                             
+                             {% if page_obj.number == num %}
+                              <li class="uk-active"><a href="?page={{ num }}">{{ num }}</a></li>
+                              {% elif num > page_obj.number|add:'-2' and page_obj.number|add:'2' %}
+                              <li ><a href="?page={{ num }}">{{ num }}</a></li>
+
+                             {% endif %}
+                             {% endfor %}
+
+                             {% if page_obj.has_next %}
+                             <li><a href="?page={{page_obj.next_page_number}}">Next</a></li>
+                             <li><a href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+
+                             {% endif %}
+
+                             {% endif %}
+                               </ul>
+                             </div>
+                            {% endif %}
+
+</div>
+
+{% endblock %}

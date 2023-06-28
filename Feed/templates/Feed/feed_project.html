@@ -1,0 +1,101 @@
+{% extends 'Core/base.html' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="main_content_logout uk-height-viewport">
+<div class="uk-container ">
+<p class="text-black uk-text-xlarge uk-text-bold">Works</p>
+<ul class="uk-breadcrumb mb-5">
+    <li><a href="{% url 'feed' %}">Home</a></li>
+    <li class="uk-active"><a>Works</a>
+</ul>
+    <div class="uk-child-width-1-1@m uk-child-width-1-1@s uk-grid-large uk-grid" uk-grid="">
+
+         {% for m in m %}
+
+            <div class="uk-first-column">
+                            <div class="uk-card rounded-xxlg bg-pH uk-scrollspy-inview uk-animation-fade" style="">
+                                <div class="uk-grid-collapse uk-grid-match uk-grid" data-uk-grid="">
+                                    <div class="uk-width-expand@m">
+                                        <div class="uk-panel rounded-xxlg uk-overflow-hidden">
+                                            <canvas width="784" height="588"></canvas>
+                                            <img src="{{ m.thumbnail }}" alt="image" data-uk-cover="" class="uk-cover" style="height: 450px; width: 675px;">
+                                            <!-- Light -->
+                                            <div class="dark:uk-hidden">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m" style="background-image: linear-gradient(to right, black 8.33%, transparent);"></div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m" style="background-image: linear-gradient(to top, black 8.33%, transparent);"></div>
+                                            </div>
+                                            <!-- dark -->
+                                            <div class="uk-hidden dark:uk-visible">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m">
+                                                    
+                                                </div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-2@m uk-flex-first@m uk-first-column">
+                                        <div class="uk-panel  uk-card-small uk-card-xlarge@m uk-padding-remove-right@m   uk-flex uk-flex-middle ">
+                                            <div class="uk-card-body">
+                                            <div class="uk-panel">
+                                                <h3 class="uk-h1 uk-text-bold uk-h1@m uk-margin-large-top@m">{{ m.title }}</h3>
+                                                <p class="uk-text-medium@m">
+                                                    {{ m.description |truncatechars:300 |escape}} 
+                                                </p>
+                                            </div>
+                                            <div class="uk-margin-top">
+                                                <a href="{% url 'project_detail' m.id %}" class="button dark large">
+                                                    <span>View case study</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            {% endfor %}
+
+                 
+                </div>
+
+
+                                                {% if is_paginated %}
+                             <div class="uk-flex uk-flex-center">
+                                <ul class="uk-pagination my-5" uk-margin>
+                             {% if is_paginated %}
+
+                             {% if page_obj.has_previous %}
+                             <li><a href="?page=1">First</a></li>
+                             <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+
+                             {% endif %}
+
+                             {% for num in page_obj.paginator.page_range %}
+                             
+                             {% if page_obj.number == num %}
+                              <li class="uk-active"><a href="?page={{ num }}">{{ num }}</a></li>
+                              {% elif num > page_obj.number|add:'-2' and page_obj.number|add:'2' %}
+                              <li ><a href="?page={{ num }}">{{ num }}</a></li>
+
+                             {% endif %}
+                             {% endfor %}
+
+                             {% if page_obj.has_next %}
+                             <li><a href="?page={{page_obj.next_page_number}}">Next</a></li>
+                             <li><a href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+
+                             {% endif %}
+
+                             {% endif %}
+                               </ul>
+                             </div>
+                            {% endif %}
+                         </div>
+                     </div>
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends 'Core/base.html' %}
+
+{% block title %}Building for Entrepreneurs {% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+{% if projects %}
+      <div class="main_content_logout uk-height-viewport">
+
+        <div class="uk-container m-auto">
+          <div class="uk-grid" uk-grid="">
+          <div class="uk-width-1-1@m  m-auto uk-width-1-2@s">
+
+
+
+          <div class="uk-container">
+ {% if projects %}
+
+              <div class="uk-width-1-1@m ">
+              <div class=" rounded-lg">
+               <div class="uk-grid mb-2 mt-7">
+                  
+                  <div class="uk-width-expand uk-flex uk-flex-middle">
+                    <div>
+                    <h4 class="mt-0 mb-0"> Search result in Projects</h4>
+
+                    <small>Articles and stories</small>
+                  </div>
+                  </div>
+
+
+                </div>
+
+
+    <div class="uk-child-width-1-1@m uk-child-width-1-1@s uk-grid-large uk-grid infinite-container" uk-grid="" >
+
+         {% for m in projects %}
+
+            <div class="infinite-item">
+                            <div class="uk-card rounded-xxlg bg-pH uk-scrollspy-inview uk-animation-fade" style="">
+                                <div class="uk-grid-collapse uk-grid-match uk-grid" data-uk-grid="">
+                                    <div class="uk-width-expand@m">
+                                        <div class="uk-panel rounded-xxlg uk-overflow-hidden">
+                                            <canvas width="784" height="588"></canvas>
+                                            <img src="{{ m.thumbnail }}" alt="image" data-uk-cover="" class="uk-cover" style="height: 450px; width: 675px;">
+                                            <!-- Light -->
+                                            <div class="dark:uk-hidden">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m" style="background-image: linear-gradient(to right, black 8.33%, transparent);"></div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m" style="background-image: linear-gradient(to top, black 8.33%, transparent);"></div>
+                                            </div>
+                                            <!-- dark -->
+                                            <div class="uk-hidden dark:uk-visible">
+                                                <div class="uk-position-cover uk-position-z-index uk-visible@m">
+                                                    
+                                                </div>
+                                                <div class="uk-position-cover uk-position-z-index uk-hidden@m">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-2@m uk-flex-first@m uk-first-column">
+                                        <div class="uk-panel  uk-card-small uk-card-xlarge@m uk-padding-remove-right@m   uk-flex uk-flex-middle ">
+                                            <div class="uk-card-body">
+                                            <div class="uk-panel">
+                                                <h3 class="uk-h1 uk-text-bold uk-h1@m uk-margin-large-top@m">{{ m.title }}</h3>
+                                                <p class="uk-text-medium@m">
+                                                    {{ m.description |truncatechars:300 |escape}} 
+                                                </p>
+                                            </div>
+                                            <div class="uk-margin-top">
+                                                <a href="{% url 'project_detail' m.id %}" class="button dark large">
+                                                    <span>View case study</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            {% endfor %}
+
+                 
+                </div>
+
+            </div>
+          </div>
+
+
+          {% endif %}
+
+
+               
+
+
+
+            </div><!-- col -->
+          </div><!-- row -->
+
+
+        </div><!-- container -->
+      </div>
+
+      </div>
+      <script src="{% static "js/jquery.waypoints.min.js" %}"></script>
+    <script src="/static/js/infinite.min.js"></script>
+    <script>
+        var infinite = new Waypoint.Infinite({
+            element: $('.infinite-container')[0],
+
+            offset: 'bottom-in-view',
+
+            onBeforePageLoad: function () {
+                $('.loading').show();
+            },
+            onAfterPageLoad: function () {
+                $('.loading').hide();
+            }
+
+        });
+    </script>
+ {% else %}
+<div uk-height-viewport="" class="main_content_logout uk-flex uk-flex-middle uk-height-viewport">
+  <div class="uk-width-1-1@m  m-auto uk-width-1-2@s">
+                           <div class="uk-card">
+                          <div class="uk-width-expand uk-card-body">
+                            <div class="uk-text-center text-black">
+                             <i class=" mdi mdi-pulse icon-xlarge"></i>
+                            </div>
+                           <h3 class="uk-text-center my-2">No matching result yet</h3>
+                           <div class="uk-width-1-2@m  m-auto uk-width-1-2@s uk-text-center ">
+                           <p class="uk-text-small">Make search keyword, easier for you to find what you want. search eg:"Side hustel ideas" or eg:"Streame" instead of eg:"Hou to get clients for my business online with out a waste of time and money" make it simple and to the point</p>
+                       </div>
+                           </div>
+                           </div>
+                       </div>
+                   </div>
+{% endif %}
+
+
+{% endblock %}

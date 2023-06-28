@@ -1,0 +1,153 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<title>{% block title %} {% endblock %}</title>
+<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+<meta name="description" content="Advice, insights and evergreen strategies to build a borderless digital economy" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<link rel="canonical" href="https://berrydzhobs.com/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ object.date }}" />
+<meta property="og:description" content="{{ object.description }}" />
+<meta property="og:url" content="https://berrydzhobs.com/" />
+<meta property="og:site_name" content="Берри Джобс" />
+<meta property="article:modified_time" content="{{ object.date }}" />
+<meta property="og:image" content="{{ object.thumbnail }}" />
+<meta property="og:image:width" content="828" />
+<meta property="og:image:height" content="290" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:label1" content="Est. reading time">
+<meta name="twitter:data1" content="10 minutes">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/fv.png'%}" type="image/x-icon"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/fv.png'%}">
+
+    <!-- CSS 
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/fb.css'%}">
+    <link rel="stylesheet" href="{% static 'css/square.css'%}">
+    <link rel="stylesheet" href="{% static 'css/C0R3.css'%}">
+    <link rel="stylesheet" href="{% static 'css/night-mode.css'%}">
+    <link rel="stylesheet" href="{% static 'css/framework.css'%}">
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+    <link rel="stylesheet" href="{% static 'Player/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Player/iqframework.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'css/icons.css'%}">
+    <link rel="stylesheet" href="{% static 'docs/css/ionicons.min.css'%}">
+    
+    <link href="{% static 'mdi/css/mdi.css'%}" media="all" rel="stylesheet" type="text/css" />
+
+    <!-- Fonts and icons -->
+    <script src="{% static 'assets/css/webfont.min.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/fonts.min.css'%}" media="all">
+    <script>
+        WebFont.load({
+            google: {"families":["Lato:300,400,700,900"]},
+            custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['{% static 'assets/css/fonts.min.css' %}']},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+      <!-- Google font
+    ================================================== -->
+    
+    <!--<link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,500,600" rel="stylesheet"> -->
+
+    <link href="https://fonts.googleapis.com/cssff98.css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    
+    <style>
+        #main_header { box-shadow: none !important;}
+        [class~=post] { box-shadow: none !important;}
+    </style>
+    
+</head>
+
+<body class="bg-pH">
+
+
+    <!-- READING POSITION INDICATOR -->
+    <progress value="0" id="eskimo-progress-bar">
+        <span class="eskimo-progress-container">
+            <span class="eskimo-progress-bar"></span>
+        </span>
+    </progress>
+
+
+        {% block content %}
+
+        {% endblock %}
+
+        
+<script type="text/javascript">
+$(document).ready(function () {
+    //Disable cut copy paste
+    $('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+   
+    //Disable mouse right click
+    $("body").on("contextmenu",function(e){
+        return false;
+    });
+});
+</script>
+<script>
+  document.onkeydown = function(e) {
+if(event.keyCode == 123) {
+return false;
+}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+return false;
+}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+return false;
+}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+return false;
+}
+if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+return false;
+}
+}
+
+</script>
+    <script src="{% static 'js/framework.js' %}"></script>
+    <script src="{% static 'js/night-mode.js' %}"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/simplebar.js' %}"></script>
+    <script src="{% static 'js/atlantis.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/fb.js' %}"></script>
+    <script src="{% static 'js/sqr.js' %}"></script>
+    <script src="{% static 'js/swiper6.js' %}"></script>
+    <script src="{% static 'js/swiper-helper.js' %}"></script>
+    <script src="{% static 'js/voice.js' %}"></script>
+    <script src="{% static 'js/n.js' %}"></script>
+    <script src="{% static 'js/iqicons.js' %}"></script>
+    <script src="{% static 'js/p.js' %}"></script>
+    {% for message in messages %}
+    <script type="text/javascript">
+    UIkit.notification({
+    message: '<div class=\'uk-grid-small p-5 rounded-3 bg-dark uk-light uk-flex uk-flex-center  shadow-dark uk-padding-small\' style=\'margin: -15px ; padding-left:0px \' uk-grid><div class=\'uk-width-1-1 m-auto\'><i class=\'mdi text-white mdi-bell-ring icon-xmedium\'></i></div><div class=\'uk-width-expand\'><small class=\'text-white\'> {{ message }} </small></div></div>',
+    pos: 'bottom-right',
+    timeout: 5000
+    });
+   </script>
+   {% endfor %}
+</body>
+</html>
